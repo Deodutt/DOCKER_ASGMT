@@ -1,0 +1,27 @@
+pipeline { 
+    agent {
+        docker { image 'ubuntu' }
+    }
+    stages {
+        stage('Build') { 
+            steps { 
+                echo "Building..."
+                sh 'apt install git -y'
+            }
+        }
+        stage('Test'){
+            steps {
+                echo "Testing..." 
+                sh 'apt install nodejs -y'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploying..."
+                sh 'apt install npm -y'
+                echo "Finished!"
+               
+            }
+        }
+    }
+}
